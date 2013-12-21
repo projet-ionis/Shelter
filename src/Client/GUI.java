@@ -46,9 +46,9 @@ public class GUI extends javax.swing.JFrame {
     public DefaultTableModel getStock() throws RemoteException{
         map = client.getStock();
         DefaultTableModel t = new DefaultTableModel();
-        t.addColumn ((Object)"Article nr.");
-        t.addColumn ((Object)"Name");
-        t.addColumn ((Object)"Amount in stock");
+        t.addColumn ((Object)"Article n°.");
+        t.addColumn ((Object)"Nom");
+        t.addColumn ((Object)"Quantité en stock");
         for(Object o : map.keySet()){
             Good g = (Good)o;
             t.addRow(new Object[] {g.getArticleNr(),g.getName(),map.get(o)});
@@ -59,9 +59,9 @@ public class GUI extends javax.swing.JFrame {
     public DefaultTableModel getUsers() throws RemoteException{
         HashMap map = client.getUsers();
         DefaultTableModel t = new DefaultTableModel();
-        t.addColumn ((Object)"User id");
-        t.addColumn ((Object)"Name");
-        t.addColumn ((Object)"Role");
+        t.addColumn ((Object)"id Utilisateur");
+        t.addColumn ((Object)"Nom");
+        t.addColumn ((Object)"Rôle");
         for(Object o : map.values()){
             Person p = (Person)o;
             t.addRow(new Object[] {p.getId(),p.getfName() + " " + p.getlName(),p.getRole().toString()});
@@ -73,9 +73,9 @@ public class GUI extends javax.swing.JFrame {
         SalesOrder s = client.getOrder(currentOrder);
         HashMap<Good, Integer> goods = s.getGoods();
         DefaultTableModel t = new DefaultTableModel();
-        t.addColumn ((Object)"Article nr.");
-        t.addColumn ((Object)"Name");
-        t.addColumn ((Object)"Amount");
+        t.addColumn ((Object)"Article n°.");
+        t.addColumn ((Object)"Nom");
+        t.addColumn ((Object)"Montant");
         for(Object o : goods.keySet()){
             Good g = (Good)o;
             t.addRow(new Object[] {g.getArticleNr(),g.getName(),goods.get(g)});
@@ -204,31 +204,31 @@ public class GUI extends javax.swing.JFrame {
 
         newUserDialog.setMinimumSize(new java.awt.Dimension(400, 300));
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("New User"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Nouvel utilisateur"));
 
-        jLabel8.setText("First name:");
+        jLabel8.setText("prénom:");
 
-        jLabel9.setText("Last name:");
+        jLabel9.setText("nom:");
 
-        jLabel10.setText("Password:");
+        jLabel10.setText("mot de passe:");
 
-        jLabel11.setText("User role:");
+        jLabel11.setText("Rôle d'utilisateur:");
 
-        roleField.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Guest", "Seller", "Packer", "Administrator" }));
+        roleField.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Invite", "Vendeur", "Emballeur", "Administrateur" }));
         roleField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 roleFieldActionPerformed(evt);
             }
         });
 
-        userSaveButton.setText("Save");
+        userSaveButton.setText("Sauvegarder");
         userSaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userSaveButtonActionPerformed(evt);
             }
         });
 
-        userCancelButton.setText("Cancel");
+        userCancelButton.setText("Annuler");
         userCancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userCancelButtonActionPerformed(evt);
@@ -310,18 +310,18 @@ public class GUI extends javax.swing.JFrame {
 
         deleteUserDialog.setMinimumSize(new java.awt.Dimension(194, 147));
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Delete user"));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Supprimer utilisateur"));
 
-        jLabel12.setText("User id:");
+        jLabel12.setText("ID utilisateur:");
 
-        deleteConfirmButton.setText("Delete");
+        deleteConfirmButton.setText("Supprimer");
         deleteConfirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteConfirmButtonActionPerformed(evt);
             }
         });
 
-        deleteCancelButton.setText("Cancel");
+        deleteCancelButton.setText("Annuler");
         deleteCancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteCancelButtonActionPerformed(evt);
@@ -378,22 +378,22 @@ public class GUI extends javax.swing.JFrame {
 
         newArticleDialog.setMinimumSize(new java.awt.Dimension(357, 225));
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("New article"));
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Nouvel article"));
 
-        jLabel13.setText("Article name:");
+        jLabel13.setText("Nom d'article:");
 
-        jLabel14.setText("Amount in stock:");
+        jLabel14.setText("Quantité en stock:");
 
-        jLabel15.setText("Shelf nr:");
+        jLabel15.setText("Etagère nr:");
 
-        newArticleDialogSaveButton.setText("Save");
+        newArticleDialogSaveButton.setText("Sauvegarder");
         newArticleDialogSaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newArticleDialogSaveButtonActionPerformed(evt);
             }
         });
 
-        newArticleCancelButton.setText("Cancel");
+        newArticleCancelButton.setText("Annuler");
         newArticleCancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newArticleCancelButtonActionPerformed(evt);
@@ -466,18 +466,18 @@ public class GUI extends javax.swing.JFrame {
 
         deleteArticleDialog.setMinimumSize(new java.awt.Dimension(216, 147));
 
-        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Delete article"));
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Supprimer l'article"));
 
-        jLabel16.setText("Article nr:");
+        jLabel16.setText("Article n°:");
 
-        deleteArticleDialogButton.setText("Delete");
+        deleteArticleDialogButton.setText("Supprimer");
         deleteArticleDialogButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteArticleDialogButtonActionPerformed(evt);
             }
         });
 
-        cancelArticleDialogButton.setText("Cancel");
+        cancelArticleDialogButton.setText("Annuler");
         cancelArticleDialogButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelArticleDialogButtonActionPerformed(evt);
@@ -533,13 +533,13 @@ public class GUI extends javax.swing.JFrame {
 
         confirmedOrderDialog.setMinimumSize(new java.awt.Dimension(332, 540));
 
-        jLabel7.setText("Order confirmation");
+        jLabel7.setText("Confirmation de commande");
 
-        jLabel17.setText("Order number:");
+        jLabel17.setText("Numéro de commande:");
 
         orderNrLabel.setText("N/A");
 
-        jLabel19.setText("Reference:");
+        jLabel19.setText("Référence:");
 
         referenceLabel.setText("N/A");
 
@@ -591,20 +591,20 @@ public class GUI extends javax.swing.JFrame {
         loginDialog.setAlwaysOnTop(true);
         loginDialog.setMinimumSize(new java.awt.Dimension(305, 237));
 
-        jLabel18.setText("Shelter - storage management system");
+        jLabel18.setText("Shelter - système de gestion du stockage");
 
-        jLabel20.setText("User ID");
+        jLabel20.setText("ID utilisateur");
 
-        jLabel21.setText("Password");
+        jLabel21.setText("Mot de passe");
 
-        jButton1.setText("Login");
+        jButton1.setText("Conexion");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Exit");
+        jButton2.setText("Sortir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -670,7 +670,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        newOrderButton.setText("New order");
+        newOrderButton.setText("Nouvelle commande");
         newOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newOrderButtonActionPerformed(evt);
@@ -684,10 +684,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Connection status:");
+        jLabel5.setText("Statut de la connection:");
 
         connectionStatus.setEditable(false);
-        connectionStatus.setText("Not connected");
+        connectionStatus.setText("Non connecté");
 
         javax.swing.GroupLayout buttonPanelLayout = new javax.swing.GroupLayout(buttonPanel);
         buttonPanel.setLayout(buttonPanelLayout);
@@ -726,7 +726,7 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel1.setText("stock");
 
-        stockSearchButton.setText("Search");
+        stockSearchButton.setText("Recherche");
         stockSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stockSearchButtonActionPerformed(evt);
@@ -743,21 +743,21 @@ public class GUI extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        jButton6.setText("Refresh");
+        jButton6.setText("Actualiser");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
 
-        jButton8.setText("New article");
+        jButton8.setText("Nouvel article");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
 
-        jButton9.setText("Delete article");
+        jButton9.setText("Supprimer l'article");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -806,7 +806,7 @@ public class GUI extends javax.swing.JFrame {
         newOrderPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         newOrderPanel.setMaximumSize(new java.awt.Dimension(721, 618));
 
-        newOrderLabel.setText("New Order");
+        newOrderLabel.setText("Nouvelle commande");
 
         newOrderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -823,9 +823,9 @@ public class GUI extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        userIDLabel.setText("User ID");
+        userIDLabel.setText("ID utilisateur");
 
-        createNewOrderButton.setText("New order");
+        createNewOrderButton.setText("nouvelle Commande");
         createNewOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createNewOrderButtonActionPerformed(evt);
@@ -858,18 +858,18 @@ public class GUI extends javax.swing.JFrame {
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        addToOrderButton.setText("Add to order");
+        addToOrderButton.setText("Ajouter à la commande");
         addToOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addToOrderButtonActionPerformed(evt);
             }
         });
 
-        removeFromOrderButton.setText("Remove from order");
+        removeFromOrderButton.setText("Enlever de la commande");
 
-        jLabel2.setText("Article number: ");
+        jLabel2.setText("Article numéro: ");
 
-        jLabel3.setText("Amount: ");
+        jLabel3.setText("Montant: ");
 
         jLabel6.setText("Stock");
 
@@ -877,14 +877,14 @@ public class GUI extends javax.swing.JFrame {
 
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        confirmOrderButton.setText("Confirm order");
+        confirmOrderButton.setText("Confirmer la commande");
         confirmOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmOrderButtonActionPerformed(evt);
             }
         });
 
-        cancelOrderButton.setText("Cancel order");
+        cancelOrderButton.setText("Annuler la commande");
         cancelOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelOrderButtonActionPerformed(evt);
@@ -1004,26 +1004,26 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel4.setText("Administration");
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("User administration"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Administration utilisateur"));
 
         userTable.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(userTable);
 
-        jButton3.setText("New user");
+        jButton3.setText("Nouvel utilisateur");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Delete user");
+        jButton4.setText("Supprimer utilisateur");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Refresh");
+        jButton5.setText("actualiser");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -1059,13 +1059,13 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Settings"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Paramètres"));
 
-        IPLabel.setText("Server IP");
+        IPLabel.setText("IP du serveur");
 
         IPField.setText("127.0.0.1");
 
-        saveButton.setText("Save");
+        saveButton.setText("Sauvegarder");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
@@ -1163,9 +1163,9 @@ public class GUI extends javax.swing.JFrame {
 
         newOrderPanel.getAccessibleContext().setAccessibleParent(stockPanel);
 
-        jMenu1.setText("File");
+        jMenu1.setText("Fichier");
 
-        jMenuItem1.setText("Connect");
+        jMenuItem1.setText("Se connecter");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -1173,7 +1173,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("Disconnect");
+        jMenuItem2.setText("Se déonnecter");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -1181,7 +1181,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setText("Exit");
+        jMenuItem3.setText("Sortir");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -1386,9 +1386,9 @@ public class GUI extends javax.swing.JFrame {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         DefaultTableModel t = new DefaultTableModel();
-        t.addColumn ((Object)"Article nr.");
-        t.addColumn ((Object)"Name");
-        t.addColumn ((Object)"Amount in stock");
+        t.addColumn ((Object)"Article n°.");
+        t.addColumn ((Object)"Nom");
+        t.addColumn ((Object)"Quantité en stock");
         for(Object o : map.keySet()){
             Good g = (Good)o;
             if(g.getName().toLowerCase().contains(par.toLowerCase()) || Integer.toString(g.getArticleNr()).equalsIgnoreCase(par))
@@ -1455,7 +1455,7 @@ public class GUI extends javax.swing.JFrame {
             client.connect();
             check = client.authentificate(Integer.valueOf(loginUserIDField.getText()), loginPasswordField.getText());
         } catch (Exception ex) {
-            errorMessageLabel.setText("Connection error.");
+            errorMessageLabel.setText("Erreur de connection.");
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
             if(check){
@@ -1463,10 +1463,10 @@ public class GUI extends javax.swing.JFrame {
                 loggedInUserID = Integer.valueOf(loginUserIDField.getText());
                 buttonPanel.setVisible(true);
                 windowPanel.setVisible(true);
-                connectionStatus.setText("Connected");
+                connectionStatus.setText("Connecté");
             }
             else if(!check){loginPasswordField.setText("");
-            errorMessageLabel.setText("Wrong user id or password.");
+            errorMessageLabel.setText("Mauvais nom d'utilisateur ou mot de passe.");
             }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -1477,7 +1477,7 @@ public class GUI extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         try {
             client.connect();
-            connectionStatus.setText("Connected");
+            connectionStatus.setText("Connecté");
         } catch (Exception ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1486,14 +1486,14 @@ public class GUI extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         try {
             client.disconnect();
-            connectionStatus.setText("Not connected");
+            connectionStatus.setText("Non connecté");
         } catch (Exception ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     public void clearNewOrderWindow(){
-        newOrderLabel.setText("New Order");
+        newOrderLabel.setText("Nouvelle commande");
             newOrderTable.setModel(new DefaultTableModel());
             newOrderAddArticleField.setText("");
             newOrderAmountField.setText("");
